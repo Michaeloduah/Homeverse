@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
+use App\Http\Controllers\UserController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,4 +22,3 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

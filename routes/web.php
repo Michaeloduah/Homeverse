@@ -33,6 +33,7 @@ Route::middleware('auth', 'verified')->group(function () {
 
         Route::name('agent.')->prefix('agent')->group(function () {
             Route::get('createproperty', [AgentController::class, 'createproperty'])->name('createproperty');
+            Route::post('storeproperty', [AgentController::class, 'storeproperty'])->name('storeproperty');
             Route::get('myproperty', [AgentController::class, 'myproperty'])->name('myproperty');
             Route::get('orders', [AgentController::class, 'orders'])->name('orders');
         });

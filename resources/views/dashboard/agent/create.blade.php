@@ -17,14 +17,14 @@
             </div>
         </div>
 
-        <form method="POST" class="login-form" action="" enctype="multipart/form-data">
+        <form method="POST" class="login-form" action="{{ route('dashboard.agent.storeproperty') }}" enctype="multipart/form-data">
             @csrf
             <label for="name" class="login-label">Name:</label><br>
             <input class="login-input1" type="text" name="name" id="name" value="{{ old('name') }}"><br>
             @if ($errors->has('name'))
                 <span class="error">
                     <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('name') }}</span>
-                </span>
+                </span><br>
             @endif
             
             <label for="property_type" class="login-label">Property Type:</label><br>
@@ -37,7 +37,7 @@
             @if ($errors->has('property_type'))
                 <span class="error">
                     <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('property_type') }}</span>
-                </span>
+                </span><br>
             @endif
 
             <label class="login-label" for="image[]">Image:</label>
@@ -47,7 +47,7 @@
             @if ($errors->has('image[]'))
                 <span class="error">
                     <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('image[]') }}</span>
-                </span>
+                </span><br>
             @endif
             
             <label class="login-label" for="description">Description:</label><br>
@@ -55,7 +55,7 @@
             @if ($errors->has('description'))
                 <span class="error">
                     <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('description') }}</span>
-                </span>
+                </span><br>
             @endif
             
             <label class="login-label" for="location">Location:</label><br>
@@ -63,7 +63,7 @@
             @if ($errors->has('location'))
                 <span class="error">
                     <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('location') }}</span>
-                </span>
+                </span><br>
             @endif
             
             <label class="login-label" for="price">Price:</label><br>
@@ -71,7 +71,7 @@
             @if ($errors->has('price'))
                 <span class="error">
                     <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('price') }}</span>
-                </span>
+                </span><br>
             @endif
             
             <label class="login-label" for="contact">Contact:</label><br>
@@ -79,7 +79,7 @@
             @if ($errors->has('contact'))
                 <span class="error">
                     <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('contact') }}</span>
-                </span>
+                </span><br>
             @endif
             
             <button class="btn-edit" type="submit">Add Property</button>

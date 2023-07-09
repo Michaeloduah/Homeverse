@@ -21,7 +21,7 @@ class AgentController extends Controller
         return view('dashboard.agent.orders');
     }
 
-    public function storeProperty(Request $request) {
+    public function storeproperty(Request $request) {
         $property = $request->validate([
             'name' => 'required',
             'property_type' => 'required',

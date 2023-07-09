@@ -50,11 +50,19 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'fullname' => 'required',
+            'username' => 'required|unique:users,username',
+            'email' => 'required|email|unique:users,email',
+            'phone' => 'required|unique:users,phone',
+            'address' => 'required',
+            'password' => 'required|min:8',
+            'confirm_password' => 'required_with:password|same:password|min:8',
+            'image' => 'mimes:jpg,png,jpeg',
+            'account_type' => 'required'
         ]);
+        
     }
+
 
     /**
      * Create a new user instance after a valid registration.
@@ -64,10 +72,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        if (isset($data['image'])) {
+        $imagePath = $data['image']->store('user_images', 'public');
+        } else {
+            $imagePath = NULL;
+        }
         return User::create([
-            'name' => $data['name'],
+            'fullname' => $data['fullname'],
+            'username' => $data['username'],
             'email' => $data['email'],
+            'phone' => $data['phone'],
+            'address' => $data['address'],
             'password' => Hash::make($data['password']),
+            'image' => $imagePath,
+            'account_type' => $data['account_type'],
         ]);
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AgentController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
@@ -29,6 +30,19 @@ Route::middleware('auth', 'verified')->group(function () {
         Route::get('profile', [DashboardController::class, 'profile'])->name('profile');
         Route::get('editprofile', [DashboardController::class, 'editprofile'])->name('editprofile');
         Route::post('updateprofile/{id}', [DashboardController::class, 'updateprofile'])->name('updateprofile');
+
+        Route::name('agent.')->prefix('agent')->group(function () {
+            Route::get('createproperty', [AgentController::class, 'createproperty'])->name('createproperty');;
+        });
+
+        Route::name('client.')->prefix('client')->group(function () {
+
+        });
+
+        Route::name('admin.')->prefix('admin')->group(function () {
+
+        });
+
     });
 
 });

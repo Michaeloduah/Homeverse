@@ -148,7 +148,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="#">
+					<a href="{{route('dashboard.agent.createproperty')}}">
 						<i class='bx bxs-home' ></i>
 						<span class="text">Add new House or Property</span>
 					</a>

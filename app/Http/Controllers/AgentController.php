@@ -42,7 +42,7 @@ class AgentController extends Controller
         $property = Property::create([
             'user_id' => $user_id,
             'name' => $request->input('name'),
-            'image' => $img_dir,
+            'images' => $img_dir,
             'property_type' => $request->input('property_type'),
             'description' => $request->input('description'),
             'location' => $request->input('location'),

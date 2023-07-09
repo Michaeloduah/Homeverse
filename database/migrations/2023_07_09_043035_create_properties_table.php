@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->string('name');
             $table->string('property_type');
-            $table->string('photos');
+            $table->json('images');
             $table->string('description');
             $table->string('location');
             $table->string('price');

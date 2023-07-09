@@ -1,8 +1,22 @@
 @extends('layouts.dashboard')
 
 @section('content')
-<h1>{{$user->fullname}}</h1>
     <main>
+        <div class="head-title">
+            <div class="left">
+                <h1>Dashboard</h1>
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="#">Dashboard</a>
+                    </li>
+                    <li><i class='bx bx-chevron-right' ></i></li>
+                    <li>
+                        <a class="active" href="#">Edit Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
         <form class="login-form" method="POST" action="{{ route('dashboard.updateprofile',auth()->user()->id) }}" enctype="multipart/form-data">
             @csrf
             

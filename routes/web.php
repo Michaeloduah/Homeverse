@@ -32,7 +32,9 @@ Route::middleware('auth', 'verified')->group(function () {
         Route::post('updateprofile/{id}', [DashboardController::class, 'updateprofile'])->name('updateprofile');
 
         Route::name('agent.')->prefix('agent')->group(function () {
-            Route::get('createproperty', [AgentController::class, 'createproperty'])->name('createproperty');;
+            Route::get('createproperty', [AgentController::class, 'createproperty'])->name('createproperty');
+            Route::get('myproperty', [AgentController::class, 'myproperty'])->name('myproperty');
+            Route::get('orders', [AgentController::class, 'orders'])->name('orders');
         });
 
         Route::name('client.')->prefix('client')->group(function () {

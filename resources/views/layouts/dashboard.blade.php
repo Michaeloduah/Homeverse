@@ -150,17 +150,17 @@
 				<li>
 					<a href="{{route('dashboard.agent.createproperty')}}">
 						<i class='bx bxs-home' ></i>
-						<span class="text">Add new House or Property</span>
+						<span class="text">Add Property</span>
 					</a>
 				</li>
 				<li>
-					<a href="#">
+					<a href="{{route('dashboard.agent.myproperty')}}">
 						<i class='bx bxs-building-house' ></i>
-						<span class="text">My Houses and Properties</span>
+						<span class="text">My Properties</span>
 					</a>
 				</li>
 				<li>
-					<a href="#">
+					<a href="{{route('dashboard.agent.orders')}}">
 						<i class='bx bxs-cart-add' ></i>
 						<span class="text">Orders</span>
 					</a>
@@ -270,19 +270,19 @@
 				<li>
 					<a href="#">
 						<i class='bx bxs-home' ></i>
-						<span class="text">House For Sale</span>
+						<span class="text">Admin For Sale</span>
 					</a>
 				</li>
 				<li>
 					<a href="#">
 						<i class='bx bxs-building-house' ></i>
-						<span class="text">House For Rent</span>
+						<span class="text">Admin For Rent</span>
 					</a>
 				</li>
 				<li>
 					<a href="#">
 						<i class='bx bxs-cart-add' ></i>
-						<span class="text">Saved Items</span>
+						<span class="text">Admin Saved Items</span>
 					</a>
 				</li>
 			</ul>

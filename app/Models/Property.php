@@ -11,6 +11,10 @@ class Property extends Model
 
     protected $guarded = ['id'];
 
+    protected $casts = [
+        'images' => 'array'
+    ];
+
     public function user() {
         return $this->belongsTo(User::class);
     }

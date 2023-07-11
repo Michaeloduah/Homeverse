@@ -25,24 +25,30 @@ class AgentController extends Controller
         $property = $request->validate([
             'name' => 'required',
             'property_type' => 'required',
-            'image' => 'mimes:jpg,png,jpeg',
-            'description' => 'required|min:50',
+            'image[]' => 'mimes:jpg,png,jpeg,svg',
+            'description' => 'required',
             'location' => 'required',
             'price' => 'required',
-            'contact' => 'required',
-            'confirm_password' => 'required_with:password|same:password|min:8',
-            'account_type' => 'required'
+            'contact' => 'required'
         ]);
 
         $user_id = auth()->user()->id;
-        $img_dir = $request->file('image')->store('property', 'public' );
         $status = "For Sale";
         $verification = "Pending";
+
+        $fileNames = [];
+        foreach ($request->file('image') as $image) {
+            $imageName = $image->getClientOriginalName();
+            $image->store('property', 'public');
+            $fileNames[] = $imageName;
+        }
+
+        $images = json_encode($fileNames);
 
         $property = Property::create([
             'user_id' => $user_id,
             'name' => $request->input('name'),
-            'images' => $img_dir,
+            'images' => $images,
             'property_type' => $request->input('property_type'),
             'description' => $request->input('description'),
             'location' => $request->input('location'),

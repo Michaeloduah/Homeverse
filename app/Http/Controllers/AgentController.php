@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Property;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
+
 
 class AgentController extends Controller
 {
@@ -14,7 +16,10 @@ class AgentController extends Controller
     }
     
     public function myproperty() {
-        return view('dashboard.agent.property');
+
+        $properties = Property::paginate(1);
+
+        return view('dashboard.agent.property', ['properties' => $properties]);
     }
     
     public function orders() {
@@ -35,15 +40,15 @@ class AgentController extends Controller
         $user_id = auth()->user()->id;
         $status = "For Sale";
         $verification = "Pending";
-
+        
         $fileNames = [];
         foreach ($request->file('image') as $image) {
-            $imageName = $image->getClientOriginalName();
+            $imageName = $image->hashName();
             $image->store('property', 'public');
             $fileNames[] = $imageName;
         }
-
-        $images = json_encode($fileNames);
+        
+        $images = $fileNames;
 
         $property = Property::create([
             'user_id' => $user_id,
@@ -57,6 +62,8 @@ class AgentController extends Controller
             'status' => $status,
             'verification' => $verification,
         ]);
+        
+        return redirect()->intended('dashboard/agent/myproperty')->with('Property created successfully');
     }
 
 }

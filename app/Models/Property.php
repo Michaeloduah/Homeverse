@@ -15,6 +15,9 @@ class Property extends Model
         'images' => 'array'
     ];
 
+    
+    // protected $columnArray = Property::pluck('images')->toArray();
+
     public function user() {
         return $this->belongsTo(User::class);
     }

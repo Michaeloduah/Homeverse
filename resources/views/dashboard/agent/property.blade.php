@@ -17,7 +17,7 @@
             </div>
         </div>
 
-            
+        Total Number of Properties: {{ $total }}  
 
         @foreach ($properties as $property)
             <div id="content-wrapper">
@@ -49,9 +49,10 @@
                     <p class="property-text">{{$property->description}}</p>
         
                     {{-- <input value=1 type="number"> --}}
-                    <a class="btn btn-dark" href="#">Edit</a>
-                    <br>
-                    <a class="btn btn-dark" href="#">Delete</a>
+                    <div class="edit-property">
+                        <a class="btn-info" href="#">Edit</a>
+                        <a class="btn-danger" href="#">Delete</a>
+                    </div>
 
                 </div>
         

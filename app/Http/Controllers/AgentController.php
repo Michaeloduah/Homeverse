@@ -16,10 +16,12 @@ class AgentController extends Controller
     }
     
     public function myproperty() {
+        $user = auth()->user();
+        $totals = Property::all()->where('user_id', $user->id);
+        $properties = Property::where('user_id', $user->id)->paginate(1);
+        $total = count($totals);
 
-        $properties = Property::paginate(1);
-
-        return view('dashboard.agent.property', ['properties' => $properties]);
+        return view('dashboard.agent.property', compact('user', 'properties', 'total'));
     }
     
     public function orders() {

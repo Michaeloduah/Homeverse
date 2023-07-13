@@ -17,7 +17,7 @@
             </div>
         </div>
 
-        Total Number of Properties: {{ $total }}  
+        <p class="property-text">Total Number of Properties: {{ $total }}</p>
 
         @foreach ($properties as $property)
             <div id="content-wrapper">

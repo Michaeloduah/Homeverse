@@ -50,8 +50,8 @@
         
                     {{-- <input value=1 type="number"> --}}
                     <div class="edit-property">
-                        <a class="btn-info" href="#">Edit</a>
-                        <a class="btn-danger" href="#">Delete</a>
+                        <a class="btn-info" href="{{ route('dashboard.agent.editproperty', $property->id) }}">Edit</a>
+                        <a class="btn-danger" href="{{ route('dashboard.agent.deleteproperty', $property->id) }}">Delete</a>
                     </div>
 
                 </div>

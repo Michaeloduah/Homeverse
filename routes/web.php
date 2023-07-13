@@ -35,7 +35,10 @@ Route::middleware('auth', 'verified')->group(function () {
             Route::get('createproperty', [AgentController::class, 'createproperty'])->name('createproperty');
             Route::post('storeproperty', [AgentController::class, 'storeproperty'])->name('storeproperty');
             Route::get('myproperty', [AgentController::class, 'myproperty'])->name('myproperty');
+            Route::get('editproperty/{id}', [AgentController::class, 'editproperty'])->name('editproperty');
+            Route::post('updateproperty/{id}', [AgentController::class, 'updateproperty'])->name('updateproperty');
             Route::get('orders', [AgentController::class, 'orders'])->name('orders');
+            Route::get('{id}', [AgentController::class, 'deleteproperty'])->name('deleteproperty');
         });
 
         Route::name('client.')->prefix('client')->group(function () {

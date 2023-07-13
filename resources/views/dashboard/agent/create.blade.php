@@ -81,6 +81,19 @@
                     <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('contact') }}</span>
                 </span><br>
             @endif
+
+            <label for="status" class="login-label">Status:</label><br>
+            <select name="status" class="login-input1" id="status" value="{{ old('status') }}">
+                <option value="">Select Property's Status</option>
+                <option value="For Sale">For Sale</option>
+                <option value="For Rent">For Rent</option>
+                <option value="Sold">Sold</option>
+            </select><br>
+            @if ($errors->has('status'))
+                <span class="error">
+                    <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('status') }}</span>
+                </span><br>
+            @endif
             
             <button class="btn-edit" type="submit">Add Property</button>
 

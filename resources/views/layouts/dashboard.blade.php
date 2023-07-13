@@ -22,22 +22,22 @@
 					<img id="logo2" width="100%" class="logo-dark" src="{{asset('assets/images/logo-light.png')}}" alt="Homeverse logo">
 				</a>
 				<ul class="side-menu top">
-					<li class="active">
+					<li class="">
 						<a href="{{ route('dashboard.index') }}">
 							<i class='bx bxs-dashboard' ></i>
 							<span class="text">Dashboard</span>
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="{{ route('dashboard.client.houseforsale') }}">
 							<i class='bx bxs-home' ></i>
-							<span class="text">House or Property For Sale</span>
+							<span class="text">Property For Sale</span>
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="{{ route('dashboard.client.houseforrent') }}">
 							<i class='bx bxs-building-house' ></i>
-							<span class="text">House or Property For Rent</span>
+							<span class="text">Property For Rent</span>
 						</a>
 					</li>
 					<li>

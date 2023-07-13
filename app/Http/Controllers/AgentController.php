@@ -54,11 +54,11 @@ class AgentController extends Controller
             'description' => 'required',
             'location' => 'required',
             'price' => 'required',
-            'contact' => 'required'
+            'contact' => 'required',
+            'status' => 'required',
         ]);
 
         $user_id = auth()->user()->id;
-        $status = "For Sale";
         $verification = "Pending";
         
         $fileNames = [];
@@ -79,11 +79,11 @@ class AgentController extends Controller
             'location' => $request->input('location'),
             'price' => $request->input('price'),
             'contact' => $request->input('contact'),
-            'status' => $status,
+            'status' => $request->input('status'),
             'verification' => $verification,
         ]);
         
-        return redirect()->intended('dashboard/agent/myproperty')->with('Property created successfully');
+        return redirect()->intended('dashboard/agent/my-property')->with('Property created successfully');
     }
 
     public function updateproperty(Request $request, $id) {
@@ -95,11 +95,11 @@ class AgentController extends Controller
             'description' => 'required',
             'location' => 'required',
             'price' => 'required',
-            'contact' => 'required'
+            'contact' => 'required',
+            'status' => 'required',
         ]);
-
+        
         $user_id = auth()->user()->id;
-        $status = "For Sale";
         $verification = "Pending";
         
         $fileNames = [];
@@ -125,19 +125,19 @@ class AgentController extends Controller
             'location' => $request->input('location'),
             'price' => $request->input('price'),
             'contact' => $request->input('contact'),
-            'status' => $status,
+            'status' => $request->input('status'),
             'verification' => $verification,
         ];
 
         $property->update($update);
         
-        return redirect()->intended('dashboard/agent/myproperty')->with('Property update successfully');
+        return redirect()->intended('dashboard/agent/my-property')->with('Property update successfully');
     }
 
     public function deleteproperty(Property $property, $id) {
         $property = Property::findOrFail($id);
         $property->delete();
-        return redirect()->intended('dashboard/agent/myproperty')->with('message', 'Property deleted Successfully');
+        return redirect()->intended('dashboard/agent/my-property')->with('message', 'Property deleted Successfully');
     }
 
 }

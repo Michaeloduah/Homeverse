@@ -41,7 +41,8 @@
                     <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('property_type') }}</span>
                 </span><br>
             @endif
-
+            
+            
             <label class="login-label" for="image[]">Image:</label>
             {{-- <small>Select multiple images for your properties</small> --}}
             <br>
@@ -58,11 +59,11 @@
                 <span class="error">
                     <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('description') }}</span>
                 </span><br>
-            @endif
-            
-            <label class="login-label" for="location">Location:</label><br>
-            <input name="location" class="login-input1" id="location" type="text" value="{{ old('location') }}"><br>
-            @if ($errors->has('location'))
+                @endif
+                
+                <label class="login-label" for="location">Location:</label><br>
+                <input name="location" class="login-input1" id="location" type="text" value="{{ old('location') }}"><br>
+                @if ($errors->has('location'))
                 <span class="error">
                     <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('location') }}</span>
                 </span><br>
@@ -71,16 +72,29 @@
             <label class="login-label" for="price">Price:</label><br>
             <input name="price" class="login-input1" id="price" type="number" value="{{ old('price') }}"><br>
             @if ($errors->has('price'))
-                <span class="error">
-                    <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('price') }}</span>
-                </span><br>
+            <span class="error">
+                <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('price') }}</span>
+            </span><br>
             @endif
             
             <label class="login-label" for="contact">Contact:</label><br>
             <input name="contact" class="login-input1" id="contact" type="text" value="{{ old('contact') }}"><br>
             @if ($errors->has('contact'))
+            <span class="error">
+                <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('contact') }}</span>
+                </span><br>
+            @endif
+            
+            <label for="status" class="login-label">Status:</label><br>
+            <select name="status" class="login-input1" id="status" value="{{ old('status') }}">
+                <option value="">Select Property's Status</option>
+                <option value="For Sale">For Sale</option>
+                <option value="For Rent">For Rent</option>
+                <option value="Sold">Sold</option>
+            </select><br>
+            @if ($errors->has('status'))
                 <span class="error">
-                    <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('contact') }}</span>
+                    <span class="section-subtitle" style="margin-inline: 0px">{{ $errors->first('status') }}</span>
                 </span><br>
             @endif
             
@@ -88,4 +102,4 @@
 
         </form>
     </main>
-@endsection
+    @endsection

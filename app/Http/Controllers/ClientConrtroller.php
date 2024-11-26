@@ -11,7 +11,7 @@ class ClientConrtroller extends Controller
 {
     //
     public function houseforsale() {
-        $properties = Property::where('status', 'For Sale')->paginate(1);
+        $properties = Property::where('status', 'For Sale')->paginate(2);
         return view('dashboard.client.houseforsale', compact('properties'));
     }
     public function houseforrent() {

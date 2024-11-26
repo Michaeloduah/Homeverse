@@ -1,10 +1,6 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    
-@endsection@extends('layouts.dashboard')
-
-@section('content')
 <main>
     <div class="head-title">
         <div class="left">
@@ -48,7 +44,7 @@
                 <h3 class="property-text">Price:{{$property->price}}</h3>
                 <h3 class="property-text">Location:{{$property->location}}</h3>
     
-                <p class="property-text">{{$property->description}}</p>
+                <p class="property-text">Description:{{$property->description}}</p>
     
                 {{-- <input value=1 type="number"> --}}
                 <div class="edit-property">

@@ -17,7 +17,25 @@
         </div>
     </div>
 
-    @foreach ($properties as $property)
+    @foreach ($properties as $property)    
+    <div class="properties">
+            <div class="card">
+                <img src="{{asset('storage/property/'.$property->images[0])}}" alt="Card Image">
+                <div class="card-content">
+                <h3 class="property-text">{{$property->name}}</h3>
+                <p class="property-text">Price: {{$property->price}}</p>
+                </div>
+                
+                <p class="section-subtitle property-text" style="margin-inline: 0px;"><a href="">See More</a></p>
+            </div>
+        </div>
+        <div class="paginator">
+            {{ $properties->links() }}
+        </div>
+        @endforeach
+
+
+    {{-- @foreach ($properties as $property)
         <div id="content-wrapper">
         
 
@@ -44,11 +62,11 @@
                 <h3 class="property-text">Price:{{$property->price}}</h3>
                 <h3 class="property-text">Location:{{$property->location}}</h3>
     
-                <p class="property-text">{{$property->description}}</p>
+                <p class="property-text">Description:{{$property->description}}</p>
     
-                {{-- <input value=1 type="number"> --}}
+                <input value=1 type="number">
                 <div class="edit-property">
-                    {{-- <p class="property-text">Are you Interested</p> --}}
+                    <p class="property-text">Are you Interested</p>
                     <a class="btn-info" href="{{ route('dashboard.agent.editproperty', $property->id) }}">Buy Now</a>
                     <a class="btn-save" href="{{ route('dashboard.agent.deleteproperty', $property->id) }}">Save Property</a>
                 </div>
@@ -56,16 +74,10 @@
             </div>
     
         </div>
-        <div class="paginator">
-            {{ $properties->links() }}
-        </div>
-
-        {{-- <br>
-        <hr>
-        <br> --}}
-    @endforeach
+        
+    @endforeach --}}
 </main>
-<script type="text/javascript">
+{{-- <script type="text/javascript">
     let thumbnails = document.getElementsByClassName('thumbnail')
 
     let activeImages = document.getElementsByClassName('active')
@@ -98,5 +110,5 @@
     })
 
 
-</script>
+</script> --}}
 @endsection

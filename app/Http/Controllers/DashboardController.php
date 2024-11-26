@@ -15,16 +15,19 @@ class DashboardController extends Controller
         return view('dashboard.index');
     }
 
-    public function profile() {
+    public function profile()
+    {
         return view('dashboard.setting');
     }
 
-    public function editprofile() {
+    public function editprofile()
+    {
         $user = User::findOrFail(auth()->user()->id);
         return view('dashboard.editprofile', ['user' => $user]);
     }
 
-    public function updateprofile(Request $request, $id) {
+    public function updateprofile(Request $request, $id)
+    {
         $user = User::findOrFail($id);
         $valid = $request->validate([
             'fullname' => 'required',
@@ -40,12 +43,9 @@ class DashboardController extends Controller
 
         if ($request->hasFile('image')) {
             $user->update(array_merge($valid, ['image' => $request->file('image')->store('user_images', 'public')]));
-        }
-        else {
+        } else {
             $user->update(array_merge($valid));
         }
         return redirect()->intended('dashboard')->with('dashboard')->withInput($request->input())->with('message', 'Profile Updated');
     }
-
-    
 }
